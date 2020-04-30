@@ -1,0 +1,11 @@
+Shantanu Dutt Shantanu Dutt Professor Department of Electrical and Computer Engineering University of Illinois at Chicago Contact: Dept. of ECE Univ. of Illinois at Chicago 1020 Science and Engr. Offices 851 S. Morgan St. Chicago, IL 60607-7053 Phone: (312) 355-1314; Fax: (312) 996-6465 e-mail: dutt@uic.edu Personal: Down Memory Lane in (a Few) Pictures Stories by Yours Truly Bio Vita and Research Highlights My 
+Google Scholar page New! Our Edited Special Issue in VLSI Design has finally appeared (2014) The VLSI Design Journal Special Issue in
+New Algorithmic Techniques for Complex EDA Problems Guest Editors: Shantanu Dutt, Dept. of ECE, University of Illinois at Chicago, USA. Dinesh Mehta, Dept. of EECS, Colorado School of Mines, USA. Gi-Joon Nam, IBM Research Labs, Austin, TX, USA. The FlowPlace Page Contains timing-driven benchmarks and placement outputs produced by
+our FlowPlace TD incremental placer. Journal and Refereed-Conference Publications (dated) The following databases have more up-to-date lists of some (not all) of my publications: (1) A list of some of my publications on the DPLB server and RA Positions Teaching ECE 368---CAD Based Logic Design
+(Spring 2014) ECE/CS 566---Parallel
+Processing (Spring 2018) ECE 565---VLSI Design
+Automation (Fall 2017) ECE 366---Computer
+Architecture (Fall 2001) ECE 465---Digital Systems
+(Spring 2018) EECS 265---Intro. Logic Design
+(Spring 1998) Research Interests VLSI CAD: Physical design, incremental design, physical synthesis,
+high-level synthesis (ASICs and FPGAs) Discrete Optimization FPGA BIST and trusted design Fault-Tolerant Computing--Systems and Chips Parallel and Distributed Computing

@@ -1,0 +1,195 @@
+10.1007/978-0-387-39940-9_73 Encyclopedia of Database Systems Springer Science+Business Media, LLC 2009 10.1007/978-0-387-39940-9_73 LING LIU and M. TAMER �ZSU Compression of Mobile Location Data Goce Trajcevski 1 , Ouri Wolfson 2 and Peter Scheuermann 1 (1) Northwestern University, Evanston, IL, USA (2) University of Illinois at Chicago, Chicago, IL, USA Without Abstract *Research Supported by Northrop Grumman Corp. P.O.8200082518. †Research supported by the National Science Foundation under Grants: DGE-0549489, OII-0611017, 0513736, 0326284. ‡Research supported by the National Science Foundation under Grant IIS-0325144/003. Synonyms Spatio-temporal data reduction Definition In moving objects databases (MOD) [ 8 ], the data pertaining to the whereabouts-in-time of a given mobile object is commonly represented as a sequence of (location, time) points, ordered by the temporal dimension. Depending on the
+application’s settings, such points may be obtained by different means,
+e.g., an on-board GPS-based system, RFID sensors, road-network sensors,
+base stations in a cellular architecture, etc. The main motivation for
+compressing the location data of the moving objects is twofold: (i)
+Reducing the storage requirements: for example, maintaining the
+information about the daily routes of a few million vehicles, even if
+the GPS samples are taken once every 30 s, can still generate
+Terra-Bytes (TB) of data. In addition, with the increase in the number
+of cellular phones and personal digital assistants that are location
+aware, the volume of the data corresponding all the mobile entities in
+a given region will even further increase. However, if a given point,
+say, ( x , y , t )
+can be eliminated from the representation of the particular trajectory
+without prohibitively sacrificing the accuracy of its representation,
+then the space required for that point’s storage can be saved; (ii) If
+a particular point along a given trajectory can be eliminated as soon
+as it is “generated” (i.e., when the location value is obtained by the on-board GPS at a given time ), yet another type of savings can be achieved – that object need not transmit the (location, time) value to a given server, thus reducing the bandwidth consumption. This
+entry explains the basic problems involved in compressing
+spatio-temporal data corresponding to trajectories of mobile objects,
+and outlines the foundations of the approaches that have addressed some
+of those problems. Historical Background The field of data compression originated in the works of Shannon, Fano, and Huffman in the 1940s [ 11 ],
+and its main goal is to represent information in as compact form as
+possible. Some popular forms of data compression have, historically,
+been around even earlier, for instance, the Morse code has been used in
+telegraphy since the mid-nineteenth century. Based on the observation
+that some letters occur more frequently than others, the code assigns
+shorter sequences of (combinations of) “⋅” and “−” to such letters.
+Thus, for example, “ e” →  “ ⋅ ” , “ a” →  “ ⋅ − ” . On the other hand, the letters which occur less frequently, are assigned longer sequences like, for example, “ q” →  “−− ⋅ − ” . In this setting, the frequency of the occurrence of single letters provided statistical structure that was exploited to reduce the average time to transmit a particular message since, in practice, the duration of the symbol “ − ” is (approximately) three times longer than the duration of the “⋅” symbol. A natural extension is to use frequency of the words over a given alphabet, in order to further compress the encoding of a given text, which is used in the Grad-2 Braille coding.
+               When the probability model of the source is known, the popular approach for encoding a collection of letters of a given alphabet is the Huffman coding [ 11 ]. Contrary to the ASCII/EBDCIC which are fixed-length codes, in the sense that every symbol is assigned same number of bits, Huffman code is a variable-length one, which assigns shorter codewords to symbols occurring less
+frequently, in an optimal manner with respect to the entropy of the
+source. When dealing with texts, some statistical correlations can be
+detected in terms of the occurrences of words . Taking this into consideration the, so called, dictionary techniques for data compression have been obtained, an example of which is the UNIX compress command. In computer science, the need for compression techniques was mainly motivated by the reduction of the size of the
+               data for storage and transmission purposes. Different kind of data may exhibit different kinds of structures that can be exploited for compression, provided a proper
+               model is developed. For example, given the sequence of numbers {9,11,11,11,14,13,15,17,16,17,20,21}, let x n denote its n th element. If one transmits the binary representation of each x i ( i ∈ {1,2,...,12}), 5 bits-per-sample are needed, for a total of 60 bits
+transmitted. However, if one provides a model represented by the
+equation , then the difference-sequence (i.e., the residual) of the initial sequence, represented as becomes: {0, 1, 0, −1, 1, −1, 0, 1, −1, −1, 1, 1}. This sequence consists of only three different numbers {− 1, 0, 1} Using
+               the mapping “ − 1 ” → “00 ” ; “0 ” →  “ − 1 ” ; “1 ” →  “10 ” , each e i can be encoded with only 2 bits. Hence, the sequence can be transmitted
+with a total of 24 bits, achieving 60% compression ratio and,
+consequently, savings in the transmission. Such intrinsic properties of
+the underlying domain have been heavily exploited in the areas of
+speech compression, image compression, etc. [ 11 ]. There are several classification of compression techniques. One example, as mentioned above, is fixed vs. variable length, however, one may also need to distinguish between static (the codewords are fixed, say, before the transmission) and dynamic/adaptive . The classification that is most relevant for this article is lossless vs. lossy compression. With lossless compression, the original data can be exactly recovered from the compressed one, which it is not the case for the lossy compression. There
+are several different measures regarding the quality of a given
+compression method: (i) the complexity of the algorithms; (ii) the
+memory footprint required; (iii) the amount of compression; (iv) the
+quality of the data (in lossy compression). The main goal of the
+methods for compressing spatio-temporal data is to strike a good balance between the complexity of the algorithm and the error-bound on the compressed data with
+               respect to the original one. There are two research fields that have addressed problems similar in spirit to the ones of compressing mobile location data: 1. Cartography . The goal of the map generalization in cartography is to reduce the size/complexity of a given map for the purpose of simplified representation of the details
+                           appropriate to a given scale [ 16 ]. 2. Computational geometry (CG). In particular, the problem of polyline (which is, a sequence of nodes specifying a chain of line segments) simplification [ 3 ], that can be described as follows. Given a polyline PL 1 with vertices { v 1 , v 2 , ... , v n } in a respective k -dimensional Euclidean space, and a tolerance ε , construct another polyline PL 1 ′ with vertices { v 1 ′, v 2 ′, ... , v m ′} in the same space, such that m ≤ n and for every point P ∈ PL 1 its distance from PL 1 ′ is smaller than a given threshold: dist ( P , PL 1 ′)  ≤ ε . In case { v 1 ′, v 2 ′, ... , v m ′} ⊆ { v 1 , v 2 , ... , v n }, PL 1 ′ is a strong simplification of PL 1 ; otherwise PL 1 ′ is called a weak simplification. There are two distinct facets of the minimal line simplification problem: (i) Given PL and ε , minimize the number of points m in PL ′ (known as min-# problem) [ 5 ], and (ii) Given PL and the “budget” m of the vertices in PL ′, minimize the error ε (known as min- ε problem). A popular heuristic for polyline simplification in the context of map generalization was proposed by Douglas and Peucker in
+                  [ 6 ]. Essentially, it recursively approximates a given polyline in a “divide and conquer” manner, where the farthest vertex,
+                  according to the distance used, is selected as the “divide” point. Given a begin_vertex p i and an end_vertex p j , if the greatest distance from some vertex p k to the straight line segment is greater than the tolerance ε, then the trajectory is broken into two parts at p k and the procedure is recursively called on each of the sub-polylines { p i , ... , p k } and { p k , ... , p j }; Otherwise, the vertices between p i and p j are removed from trajectory and this segment is simplified as a straight line . An illustration of the DP heuristic is given in Fig. 1 . Although the original version of the algorithm, as presented in [ 6 ], has a running time O ( n 2 ), an O ( n log n ) algorithm was presented in [ 9 ]. However, none of these algorithms can ensure an optimality, in terms of the size of the compression (alternatively, in
+                  terms of a minimal ε -error for a fixed reduction factor). An optimal algorithm was presented in [ 5 ], with a complexity of O ( n 2 ), subsequently extended for 3D and higher dimensions in [ 3 ]. Compression of Mobile Location Data. Figure 1 Douglas–Peucker heuristic. Foundations Assuming that the objects are moving in a 2D space with respect to a given coordinate system, a trajectory , which is often used in the MOD literature [ 8 , 13 , 15 ] to describe the motion of the moving objects, is defined as a function which maps a given (temporal) interval [ t b , t e ] into a one-dimensional subset of . It is represented as a sequence of 3D points (2D geography + time) ( x 1 , y 1 , t 1 ), ( x 2 , y 2 , t 2 ), ... ,( x n , y n , t n ), where t b = t 1 and t e = t n and t 1 ≤ t 2 ≤ ... ≤ t n . Each point ( x i , y i , t i ) in the sequence represents the 2D location ( x i , y i ) of the object, at the time t i . For every t ∈  ( t i , t i +1 ), the location of the object is obtained by a linear interpolation between ( x i , y i ) and ( x i +1 , y i +1 ) with the ratio ( t − t i )∕( t i +1 − t i ), which is, in between two points the object is assumed to move along a straight line-segment and with a constant speed.
+               The 2D projection of the trajectory is a polygonal chain with vertices ( x 1 , y 1 ), ( x 2 , y 2 ) ... ( x n , y n ), called a route . Observe that a trajectory may represent both the past and the future motion, i.e., the motion plan of a given object (c.f. [ 8 ]).
+Typically, for future trajectories, the user provides the starting
+location, starting time and the destination (plus, possibly, a set of
+to-be-visited) points, and the MOD server uses these, along with the
+distribution of the speed-patterns on the road segments as inputs to a
+dynamic extension of the Dijkstra’s algorithm [ 13 ], to generate the shortest travel-time trajectory. One may be tempted to straightforwardly apply the existing results on polyline simplification from the CG literature (e.g.,
+                  the DP [ 6 , 9 ] or the optimal algorithm [ 3 , 5 ]), in order to compress a given trajectory. However, as pointed out in [ 4 ], the semantics of the spatial + temporal domain combined, raises two major concerns: 1. What is the function used to measure the distance between points along trajectories? 2. How does the choice of that function affect the error that the compressed trajectory introduces in the answers of the popular spatio-temporal queries? In the sequel, each of these
+                           questions is addressed in a greater detail. Distance Function A popular distance function between two curves, often used in CG applications is the, so called, Hausdorff distance [ 1 ]. Essentially, two curves C 1 and C 2 , their Hausdorff distance simply looks for the smallest ε such that C 1 is completely contained in the ε -neighborhood of C 2 (i.e., C 1 is completely contained in the Minkowski Sum of C 2 and a disk with radius ε )
+and vice versa. Although it is arguably a very natural distance measure
+between curves and/or compact sets, the Hausdorff distance is too
+“static”, in the sense that it neither considers any direction nor any
+dynamics of the motion along the curves. A classical example of the
+inadequacy of the Hausdorff distance, often used in the CG literature [ 1 , 2 ] is the “man walking the dog” . Figure 2 illustrates the corresponding routes of the man (M-route) and the dog (D-route) , as well as their trajectories M-trajectory and D-trajectory . Observe that, ignoring the temporal aspect of their motions, the D-route and the M-route are within Hausdorff distance of e , as exemplified by the points A and B in the XY plane. However, their actual temporally aware distance corresponds to the minimal length of the leash that the man needs to hold. The 3D part of Fig. 2 illustrates the discrepancy between the distances among the points along the routes , and their corresponding counterparts along trajectories : when the dog is at the point A , which is at time t , the man is actually at M ( t ), and their distance is much greater then e (the man is at the geo-location B at the time t 1 > t ). The Fr�chet distance [ 2 ] is more general than the Hausdorff one, in the sense that it allows for a variety of possible motion-patterns along the
+                     given route-segments. As an illustration, observe that on the portion of the D-trajectory , the dog may be moving non-uniformly (i.e., accelerating) along a route segment. Compression of Mobile Location Data. Figure 2 Hausdorff vs. Fr�chet distance. The
+discussion above illustrates two extreme points along the spectrum of
+distance functions for moving objects. Although the Fr�chet distance is
+the most general one, regarding the possible dynamics of motions, it is
+unnecessarily complex for the common trajectory model in MOD settings.
+The inadequacy of the L 2 norm as a distance function for spatio-temporal trajectories was pointed out in [ 4 ] where, in order to properly capture the semantics of the problem domain, alternative distance functions were introduced.
+                     Given a spatio-temporal point p m =  ( x m , y m , t m ) and a trajectory segment between the vertices p i =  ( x i , y i , t i ) and p j =  ( x j , y j , t j ), [ 4 ] proposed the E u and E t distance functions between the p m and , which are explained next 1. E u – The three dimensional time_uniform distance, which is defined when t m ∈  [ t i , t j ], as follows: where p c =  ( x c , y c , t c ) is the unique point on which has the same time value as p m (i.e., t c = t m ). An illustration of using the E u distance function for reducing the size of a given trajectory is presented in Fig. 3 . Intuitivelly, the distance is measured at equal horizontal planes, for the respective values of the temporal dimension. One can
+“visually” think of the relationship between the original trajectory
+and the compressed trajectory as follows: the original trajectory is
+contained inside the sheared cylinder obtained by sweeping (the center
+of) a horizontal disk with radius ε along the compressed trajectory. Compression of Mobile Location Data. Figure 3 E u distance function for trajectory compression. 2. E t – The time distance is defined as: , where t c is the time of the point on the XY projection of , which is closest (in terms of the 2D Euclidean distance) to the XY projection p′ m of p m . Intuitively, to find the time distance between p m and , one needs to: 1. Project each of them on the XY plane; 2. Find the point that is closest to p′ m ; 3. Find the difference between the corresponding times of p c and p m . An important observation regarding the computation of the compressed version of a given original trajectory as an input, is that both the DP [ 6 ] and the optimal algorithm [ 5 ] can be used, provided they are appropriately modified to reflect the distance function used. Experimental results in [ 4 ] demonstrated that the DP heuristics yields a compression factor that is very comparable to the one obtained by the optimal
+                  algorithm, however, its execution is much faster. Spatio-Temporal Queries and Trajectory Compression The most popular categories of spatio-temporal queries, whose efficient processing has been investigated by many MOD researchers
+                     [ 8 ] are: 1. where_at ( T , t ) – returns the expected location at time t . 2. when_at ( T , x , y ) – returns the time t at which a moving object on trajectory T is expected to be at location ( x , y ). 3. intersect ( T , P , t 1 , t 2 ) – is true if the trajectory T intersects the polygon P between the times t 1 and t 2 . This is an instance of the, so called, spatio-temporal range query). 4. nearest_neighbor ( T , O , t ) – The operator is defined for an arbitrary set of trajectories O , and it returns a trajectory T ′ of O . The object moving according to T ′, at time t , is closest than any other object of O to the object moving according to T . 5. join ( O , Θ) – O is a set of trajectories and the operator returns the pairs ( T 1 , T 2 ) such that their distance, according to the distance function used, is less than a given threshold Θ. An
+important practical consideration for compressing trajectory data is
+how the (im)precision generated by the compression, affects the answers
+of the spatio-temporal queries. As it turns out, the distance function
+used in the compression process plays an important role and, towards
+this, the concept of soundness [ 4 ] of a distance function with respect to a particular query was introduced in [ 4 ]. A pair (distance_function, query) is called sound if the error of the query -answer, when processed over the compressed trajectory is bounded. In case the error is unbounded ,
+which is, although the compression itself guarantees a distance-error
+of ε between the points on the compressed trajectory with respect to
+the original one, the error of the answer to the query can grow
+arbitrarily large, the pair is called unsound . Table 1 below (adapted from [ 4 ]) summarizes the soundness properties of three distance functions with respect to five categories of spatio-temporal queries. Compression of Mobile Location Data. Table 1 Distance soundness and error-bound on spatio-temporal query answers Where_at When_at Intersect Nearest neighbor E 2 ( L 2 over routes) Unsound Unsound Unsound Unsound E u Sound ( ε ) Unsound Sound ( ε ) Sound (2 ε ) E t Unsound Sound ( ε ) Unsound Unsound As one can see, there is no single distance function that is sound for all the possible spatio-temporal queries. The
+compression techniques for spatio-temporal data presented thus far,
+implicitly assumed that the trajectories are available in their
+entirety, i.e., they are past-motion trajectories. However, in
+practice, it is often the case that the (location, time) data is generated on-board mobile units, and is transmitted to the MOD server in real time [ 7 , 17 ]. Dead-reckoning is a policy which essentially represents an agreement between a given moving object and the MOD server regarding the updates
+                     transmitted by that particular object. The main idea is that the communication between them can be reduced (consequently, network bandwidth can be spared) at the expense of the imprecision of the data in the MOD representing the object’s motion. In order to avoid an unbounded error of the object’s location data,
+                     the agreement specifies a threshold δ that is a parameter of the policy, which can be explained as follows: 1. The object sends its location and the expected velocity to the MOD server and, as far as the MOD server is concerned, the
+future trajectory of that object is an infinite ray originating at the
+update point and obtained by extrapolation, using the velocity vector. 2. The information that the MOD server has is the expected trajectory of the moving object. However, each moving object is aware of its actual location , by periodically sampling it, e.g., using an on-board GPS. 3. For as long as its actual location at a given time t i does not deviate by more than δ from the location that the MOD estimates at t i using the information previously transmitted, the object does not transmit any new updates. When the actual distance deviates
+                              by more then δ from its location on the expected trajectory, the object will send another (location, time, velocity) update. The policy described above is commonly known as a distance-based dead reckoning, and an illustration is given in Fig. 4 . At time t 0 the object sent its location and the predicted velocity (arrowed line)
+to the MOD server. The dashed line extending the vector indicate the
+expected trajectory of the moving object and the squares along it
+indicate the object’s positions at six time instances, as estimated by
+the MOD, while the shaded circles indicate the actual positions of the
+object. Typically, the actual trajectory is obtained by connecting the
+GPS points with straight line-segments, assuming that in-between two
+updates, the object was moving with a constant speed. As illustrated,
+at t 6 the distance between the actual position and the MOD-estimated one exceeds the threshold agreed upon ( d 6 > δ ) and the object sends a new update, at which point the MOD changes the expected trajectory, based on that update. Thus, at t 6 , the MOD server actually performs two tasks: 1. Corrects its own “knowledge” about the recent past and approximates the actual trajectory between t 0 and t 6 with a straight line-segment, which defines the actual simplification of the near-past trajectory; Compression of Mobile Location Data. Figure 4 Distance-based dead-reckoning policy. 2. generates another infinite ray corresponding to the future-expected trajectory, starting at the last update-point, and using
+                              the newly received velocity vector for extrapolation. Various trade-offs between the update costs and the (impacts on the) imprecision of the MOD data for several different variants
+                     of dead reckoning are investigated in [ 17 ].
+The dead-reckoning, in a sense, achieves in real-time both of the goals
+of compression: – reduces the communication, and enables the MOD server
+to store only a subset of the actual trajectory. Assuming that a
+dead-reckoning policy with threshold δ was used in real-time, clearly, the MOD has obtained a compressed past-trajectory, say Tr m c , of a given mobile object o m . If o m was to transmit every single GPS-based update, i.e., no dead-reckoning applied, the MOD would have an uncompressed trajectory Tr m available. The results in [ 14 ] have established that Tr m c is a strong simplification of Tr m , with an error-bound 2 δ . Key Applications The compression of moving objects trajectories data is of interest in several scientific and application domains. Wireless Sensor Networks (WSN) Wireless sensor networks consist of a large number of sensors – devices that are capable of measuring various phenomena; performing elementary calculations; and communicating with each
+                  other, organizing themselves in an ad hoc network [ 19 ].
+A particularly critical aspect of the WSN is the efficient management
+of the energy-reserves, given that the communication between two nodes
+drains a lot more battery-power than the operations of sensing and
+(local) computing. Consequently, in many tracking applications that can
+tolerate delays and imprecision in the (location, time) data, performing local compression of the trajectory data, before it is sent to a particular sink, can yield substantial
+                  increase in the networks’ lifetime. Different policies for such compressions are presented in [ 18 ]. Location-Based Services (LBS) A
+variety of applications in LBS depend on the data for mobile objects
+with different mobility properties (e.g., pedestrians, private
+vehicles, taxis, public transportation, etc.). Typically, LBS are
+concerned with a context-aware delivery of the data which matches the
+preferences of users based on their locations [ 12 ].
+In order to provide faster response time, and more relevant
+information, the LBS should be able to predict, based on the motion
+patterns, what kind of data will be relevant/requested in a near future
+by given users. This, in turn, implies some accumulated knowledge about
+the mobility patterns of the users in the (near) past. However, keeping
+such data in its entirety can impose prohibitively high storage
+requirements. Geographic Information Systems (GIS) Recently,
+a plethora of services and devices has emerged for providing path
+planning and navigation for the mobile users: from MapQuest and
+Google-maps, through Garmin and iPaq Travel Companion. Each of these
+services relies on some traffic-based information in order generate the
+optimal (in distance or travel-time) path for their users. However, as
+the traffic conditions fluctuate, the future-portions of the routes may
+need to be recalculated. In order to better estimate the impact of the
+traffic fluctuations, some knowledge from the past is needed which,
+ultimately means storing some past information about trajectories.
+However, as observed in the literature [ 4 ], storing the uncompressed trajectory data corresponding to daily driving activities of few millions of users, could require
+                  TBs of data. Spatio-Temporal Data Mining Clustering
+is a process of grouping a set of (physical or abstract) objects into
+classes of similar objects, and its purpose is to facilitate faster
+data analysis in a given domain of interest. With the recent advances
+in miniaturization of computing devices and communications
+technologies, the sheer volume makes it very costly to apply clustering
+to the original trajectories’ data. Compressing such data, especially
+if one can guarantee a bounded error for the queries of interest, can
+significantly improve the processing time for many algorithms for
+trajectories clustering [ 10 ]. Future Directions Any
+problem-domain that depends on storing large volumes of trajectories’
+data, in one way and level or another, needs some sort of data
+compression in order to reduce the storage requirements and to speed up
+processing of spatio-temporal queries of interest. Clearly, a desirable
+property of the compression techniques is to ensure a bound on the
+errors of the answers to the queries. There are several
+directions of interest for the future research on mobile data
+compression. In applications like GIS and LBS, it is a paramount to add
+some context-awareness to the compression techniques. For example,
+combining the mobile location data compression with the particular
+tourists attractions and the season/time, could provide a speed-up in
+algorithms which are used for generating real-time advertisements,
+while ensuring that the error (in terms of users that received
+particular ad) is bounded. An interesting aspect that has been
+presented in [ 4 ] is the, so-called, aging of the trajectories: a trajectory that is 1-week old could have higher
+impact on the traffic-impact analysis, than a trajectory that was
+recorded 5 weeks ago. Consequently, one may reduce the older trajectory
+with a higher error-bound, thus further reducing the storage
+requirements. Automatizing this process in a manner that reflects the
+specifics of a given problem-domain (e.g., context-aware information
+delivery) is an open question. Despite the large body of works on OLAP
+and warehousing of traditional data, very little has been done on
+spatio-temporal OLAP. It is likely that the process of mobile data
+compression will play an important role in these directions. Cross-references Data Compression Data Mining Moving Objects Databases Recommended Reading 1. Alt
+H. and Guibas L. Discrete geometric shapes: matching, interpolation,
+and approximation. In Handbook of Computational Geometry. Elsevier,
+Amsterdam, 1999. 2. Alt A., Knauer C., and Wenk C. Comparison of distance measures for planar curves. Algorithmica, 38(1):45–58, 2004. 3. Barequet G., Chen D.Z., Deascu O., Goodrich M.T., and Snoeyink J. Efficiently approximating polygonal path in three and higher
+                     dimensions. Algorithmica, 33(2):150–167, 2002. 4. Cao H., Wolfson O., and Trajcevski G. Spatio-temporal data reduction with deterministic error bounds. VLDB J., 15(3):211–228,
+                     2006. 5. Chan W. and Chin F. Approximation of polygonal curves with minimum number of line segments or minimal error. Int. J. Computat.
+                     Geometry Appl., 6(1):59–77, 1996. 6. Douglas D. and Peucker T. Algorithms for the reduction of the number of points required to represent a digitised line or its
+                     caricature. Can. Cartographer, 10(2):112–122, 1973. 7. Gedik B. and Liu L. Mobieyes: a distributed location monitoring service using moving location queries. IEEE Trans. Mobile
+                     Comput., 5(10):1384–1402, 2006. 8. G�ting R.H. and Schneider M. Moving objects databases. Morgan Kaufmann, Los Altos, CA, 2005. 9. Hershberger J. and Snoeyink J. Speeding up the douglas-peucker line-simplification algorithm. In Proc. 5th Int. Symp. on Spatial
+                     Data Handling, 1992, pp. 134–143. 10. Jensen C.S., Lin D., and Ooi B.C. Continuous clustering of moving objects. IEEE Trans. Knowl. Data Eng., 19(9):1161–1174,
+                     2007. 11. Sayood K. Introduction to Data Compression. Morgan Kaufmann, Los Altos, CA, 1996. 12. Schiller J. and Voisard A. Location-Based Services. Morgan Kaufmann, Los Altos, CA, 2004. 13. Trajcevski G., Wolfson O., Hinrichs K., and Chamberlain K. Managing uncertainty in moving objects databases. ACM Trans. Database
+                     Syst., 29(3):463–507, 2004. 14. Trajcevski
+G., Cao H., Wolfson H., Scheuermann P., and Vaccaro D. On-line data
+reduction and the quality of history in moving objects databases. In
+Proc. 5th ACM Int. Workshop on Data Eng. for Wireless and Mobile
+Access, 2006, pp. 19–26. 15. Vlachos M., Hadjielefteriou M., Gunopulos D., and Keogh E. Indexing multidimensional time-series. VLDB J., 15(1):1–20, 2006. 16. Weibel
+R. Generalization of spatial data: Principles and selected algorithms.
+In Algorithmic Foundations of Geographic Information Systems. Van
+Kreveld M. Nievergelt J., Roos T., and Widmayer P. (eds.). LNCS
+Tutorial Springer, Berlin, 1998. 17. Wolfson O., Sistla A.P., Chamberlain S., and Yesha Y. Updating and querying databases that track mobile units. Distrib. Parallel
+                     Databases, 7(3):257–387, 1999. 18. Xu
+Y. and Lee W.-C. Compressing moving object trajectory in wireless
+sensor networks. Int. J. Distrib. Sensor Netw. 3(2):151–174, 2007. 19. Zhao F. and Guibas L. Wireless sensor networks: an information processing approach. Morgan Kaufmann, Los Altos, CA, 2004.
