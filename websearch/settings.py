@@ -14,13 +14,13 @@ BOT_NAME = 'websearch'
 SPIDER_MODULES = ['websearch.spiders']
 NEWSPIDER_MODULE = 'websearch.spiders'
 
-CLOSESPIDER_PAGECOUNT = 3000
+CLOSESPIDER_PAGECOUNT = 100
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 USER_AGENT = 'Crawling for project under CS581'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
-DEPTH_PRIORITY = 1
+DEPTH_PRIORITY = 4
 SCHEDULER_DISK_QUEUE = 'scrapy.squeues.PickleFifoDiskQueue' 
 SCHEDULER_MEMORY_QUEUE = 'scrapy.squeues.FifoMemoryQueue'
 

@@ -13,6 +13,7 @@ class WebsearchItem(scrapy.Item):
     origin_link = scrapy.Field()
     title = scrapy.Field()
     contents = scrapy.Field()
+    outlinks = scrapy.Field()
     #contents_vt= scrapy.Field()
     #content= scrapy.Field()
     
