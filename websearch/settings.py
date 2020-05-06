@@ -14,7 +14,7 @@ BOT_NAME = 'websearch'
 SPIDER_MODULES = ['websearch.spiders']
 NEWSPIDER_MODULE = 'websearch.spiders'
 
-CLOSESPIDER_PAGECOUNT = 100
+CLOSESPIDER_PAGECOUNT = 4000
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 USER_AGENT = 'Crawling for project under CS581'
 

@@ -1,0 +1,33 @@
+{
+    "origin_link": "https://nlp.lab.uic.edu/nlp-research/summarization-for-entertainment-and-for-health-care/",
+    "title": "Summarization for Entertainment and Healthcare | Natural Language Processing Laboratory | University of Illinois at Chicago",
+    "contents": "               Skip to the content of this page ,  the main menu , the secondary menu , the site search form , the site home page .           Natural Language Processing Laboratory     Search the site     Toggle Menu      Search                  Natural Language Processing Laboratory      Natural Language Processing Laboratory   Main Menu    Research           Methodology and Foundational Work    NL for Educational Technology    Summarization for Entertainment and Healthcare    Human-Robot Interaction         People    Publications    Resources    Photos    News     Eyebrow menu    Computer Science    College of Engineering    Contact    UIC menu    UIC.edu    Campus Map       Search               View Menu           Breadcrumbs   Natural Language Processing Laboratory    Research    Summarization for Entertainment and Healthcare        Summarization for Entertainment and Healthcare       Summarization for entertainment and for health care         The vast amount of available language data calls for appropriate tools to manage it, such as summarization, a well-established field in NLP. However, summarization research has mostly resulted in summaries composed of sentences extracted whole from the text. First, we worked on generating summaries composed of subsentential fragments that are recombined to create new sentences (Xie et al., 2004; Xie et al., 2008 ). In more recent work, we used information extraction and generation techniques to produce summaries of reviews of songs for a Music Recommendation System ( Tata & Di Eugenio, 2010; Tata & Di Eugenio, 2012). One current project applies summarization to the generation of patient-centric summaries of hospital stays, which integrate information that comes from both discharge notes, written by doctors, and nursing notes. Our first result computationally confirms our intuition that there is very scant overlap between the notes written by doctors and by nurses for the same patient (Di Eugenio et al., 2013a).             Research           Methodology and Foundational Work    NL for Educational Technology    Summarization for Entertainment and Healthcare    Human-Robot Interaction                    ",
+    "outlinks": [
+        "https://library.uic.edu/",
+        "https://nlp.lab.uic.edu/publications/",
+        "https://uic.edu/",
+        "https://engineering.uic.edu/",
+        "https://nlp.lab.uic.edu/nlp-research/methodology-and-foundational-work/",
+        "https://nlp.lab.uic.edu/news-2/",
+        "https://nlp.lab.uic.edu/nlp-research/human-robot-interaction/",
+        "https://nlp.lab.uic.edu/resources/contact/",
+        "https://nlp.lab.uic.edu/resources/",
+        "https://nlp.lab.uic.edu/people/",
+        "https://nlp.lab.uic.edu/nlp-research/nl-for-educational-technology/",
+        "https://uic.edu/about/job-opportunities",
+        "https://today.uic.edu/events",
+        "https://catalog.uic.edu/ucat/academic-calendar/",
+        "https://nlp.lab.uic.edu/nlp-research/",
+        "https://nlp.lab.uic.edu/",
+        "https://ready.uic.edu/digital-materials/uic-safe-mobile-app/",
+        "https://dos.uic.edu/student-veterans-affairs/",
+        "https://uihealth.uic.edu/",
+        "https://maps.uic.edu/",
+        "https://www.uic.edu/apps/departments-az/search",
+        "https://emergency.uic.edu/",
+        "https://nlp.lab.uic.edu/photos/",
+        "https://disabilityresources.uic.edu/",
+        "https://www.cs.uic.edu/",
+        "https://today.uic.edu/"
+    ]
+}

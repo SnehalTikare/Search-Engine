@@ -1,26 +1,29 @@
 import sys
 from PyQt5 import QtWidgets
+from PyQt5 import QtGui
+#from PyQt5.QtGui import QPixmap
 #from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton, QLineEdit, QLabel, QTextBrowser
 #from PyQt5.QtCore import pyqtSlot
-from query_processing import *
+from query_processing import get_result
 
 
 class application(QtWidgets.QMainWindow):
     def __init__(self):
             super().__init__()
-            self.title = 'UIC search Engine'
-            self.left = 10
-            self.top = 10
-            self.width = 1200
-            self.height = 700
             self.window()
-            self.results_page = 10
 
     def window(self):
         self.setWindowTitle('UIC Search engine')
         self.setGeometry(300, 300, 500, 500)
+        self.imglabel = QtWidgets.QLabel(self)
+        self.pixmap = QtGui.QPixmap('uic_logo_red.png')
+        self.pixmap = self.pixmap.scaledToWidth(45)
+        self.pixmap = self.pixmap.scaledToHeight(45)
+        self.imglabel.setPixmap(self.pixmap)
+        self.imglabel.move(150,5)
         self.label = QtWidgets.QLabel(self)
-        self.label.setText('Search UIC')
+        self.label.setText("<font color='Black'>Search</font>")
+        self.label.setFont(QtGui.QFont('Arial', 20,weight=QtGui.QFont.Bold)) 
         self.label.move(200, 10)
         self.textbox = QtWidgets.QLineEdit(self)
         self.textbox.move(120, 50)
@@ -30,32 +33,29 @@ class application(QtWidgets.QMainWindow):
         self.b.setText('search')
         self.b.move(330, 48)
         self.b.clicked.connect(self.submit)
-        self.result_view = QtWidgets.QTextBrowser(self)
-        # self.result_view.setReadOnly(True)
-        self.result_view.move(50, 80)
-        self.result_view.resize(400, 400)
-        self.result_view.hide()
+        self.results = QtWidgets.QTextBrowser(self)
+        # self.results.setReadOnly(True)
+        self.results.move(50, 80)
+        self.results.resize(400, 400)
+        self.results.hide()
         self.show()
 
     def submit(self):
-        self.results_page = 10
+        self.results.setText("")
+        self.number_of_links = 10
         self.user_query = self.textbox.text()
         self.query=[]
         self.query.append(self.user_query)
-        self.result = get_result(self.query)
-        display_html = ''
-        self.url_list = []
-        for url in self.result:
+        self.result_url = get_result(self.query)
+        self.urls = []
+        for url in self.result_url:
+            self.urls.append(self.make_hyperlink(url))
+        urls = ''.join(self.urls[:self.number_of_links])
+        self.results.setText(urls)
+        self.results.setOpenExternalLinks(True)
+        self.results.show()
 
-            display_html += self.add_href(url)
-            self.url_list.append(self.add_href(url))
-        urls = ''.join(self.url_list[:self.results_page])
-        self.result_view.setText(urls)
-        self.result_view.setOpenExternalLinks(True)
-        self.result_view.show()
-
-    def add_href(self,url):
-        # return '<a href="' + url + '">' + url + '</a>' + '<pre> Score : ' + str(score) + '</pre><br>'
+    def make_hyperlink(self,url):
         return '<a href="' + url + '">' + url + '</a><br><br>'
 
 if __name__ == '__main__':

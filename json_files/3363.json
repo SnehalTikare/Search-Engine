@@ -1,0 +1,12 @@
+{
+    "origin_link": "https://sts.bioe.uic.edu/castp/",
+    "title": "CASTp 3.0: Computed Atlas of Surface Topography of proteins",
+    "contents": "             CASTp     C omputed A tlas of S urface T opography of proteins          CASTp     Calculation    Background    Plugin         Please cite this paper if you publish or present results using CASTp analysis:  Tian et al., Nucleic Acids Res. 2018. PMID: 29860391 DOI: 10.1093/nar/gky473 .   For questions and bugs, please contact uic.lianglab{at}gmail.com .        bubble_chart Show pockets    file_download Download     PDB or job ID    search           {{basicdata.name}}   {{basicdata.desc}}      Other assembly  help   {{assemid}}        Loading...         PocID help   Area (SA)  Volume (SA)      {{poc.id}}  {{poc.area}}  {{poc .vol}}         PocID  Chain  SeqID  AA  Atom      {{atom.pocid}}  {{atom.ch}}  {{atom.seqid}}  {{atom.aa}}  {{atom.atom}}            Sequence help     Chain {{chaindata.chain}}   {{x.aa}}          Features      Feature  Position(s)  Description  Reference      {{feat.ft}}  {{feat.ch}}: {{feat.pos}}  {{feat.dscr}}   Uniprot: {{feat.spid}}          publish      help_outline      Configure the visualization of pockets     Show  Pocket ID  Area (SA)  Volume (SA) help   Negative Volume Color  Representation Style          {{poc.id}}  {{pocdata[poc.id-1].info.area}}  {{pocdata[poc.id-1].info.vol}}                warning Volumne and/or surface rendering for large pockets may cause high usage of memory and CPU.    cancel Cancel   bubble_chart Update          ",
+    "outlinks": [
+        "https://sts.bioe.uic.edu/castp/calculation.html",
+        "https://sts.bioe.uic.edu/castp/plugin.html",
+        "https://sts.bioe.uic.edu/castp/index.html",
+        "https://sts.bioe.uic.edu/castp/index.html?%7B%7Bassemid%7D%7D=",
+        "https://sts.bioe.uic.edu/castp/background.html"
+    ]
+}

@@ -1,0 +1,33 @@
+{
+    "origin_link": "https://ethos.lab.uic.edu/background/paper-reading-seminar/",
+    "title": "Paper Reading Seminar | Ethos Laboratory | University of Illinois at Chicago",
+    "contents": "               Skip to the content of this page ,  the main menu , the secondary menu , the site search form , the site home page .           Ethos Laboratory     Search the site     Toggle Menu      Search                  Ethos Laboratory      Ethos Laboratory   Main Menu    People    Projects    Papers    About Us           Getting Started    Paper Reading Seminar    Binary install into VirtualBox    The Advanced Programming Seminar Series          Eyebrow menu    Computer Science    College of Engineering    UIC menu    UIC.edu    Campus Map       Search               View Menu           Breadcrumbs   Ethos Laboratory    About Us    Paper Reading Seminar        Paper Reading Seminar  The Paper Reading Seminar meets on each Wednesday from 1:00pm - 2:00pm in SEL 4224. Each week we select a paper which covers system issues, security issues or any other interesting topics from various conferences or journals. We will read around 4 papers on each theme. The people attend the seminar need to read the paper in advance. At the beginning of the seminar, a person gives a short summary of the paper first, then followed by the discussion including all attendees.       Paper List by Themes     Authentication         Authentication    Authentication in the Taos operating system (wobber94authentication). Edward Wobber et al. Jan. 24, 2013 (Presented by Dr. Solworth)  Kerberos: An Authentication Service for Open Network Systems (steiner88kerberos). Jennifer G. Steiner et al. Jan. 30, 2013 (Presented by Yaohua)  Ten Risks of PKI: What You’re not Being Told about Public Key Intrustructure (ellison00pkiRisks). Carl Ellison and Bruce Schneier. Feb. 6, 2013 (Presented by Wenyuan)  Building Secure High-Performance Web Services with OKWS (krohn04okws). Maxwell Krohn. Feb. 27, 2013 (Presented by Mike)  Labels and Event Processes in the Asbestos Operating System (efstathopoulos05labels). Petros Efstathopoulos et al. Mar. 6, 2013 (Presented by Yaohua)         Ethos Papers         Ethos Papers    Ethos’ Distributed Types (git repo sent in email). W. Michael Petullo et al. Mar. 13, 2013 (Presented by Xu)  Authentication in Ethos (git repo sent in email). W. Michael Petullo and Jon A. Solworth. Mar. 21, 2013 (Presented by Siming)  Simple-to-use, Secure-by-design Networking in Ethos (git repo sent in email). W. Michael Petullo and Jon A. Solworth. Mar. 27, 2013 (Presented by Yaohua)  MinimaLT: Minimal-latency Networking Through Better Security (git repo sent in email). Anonymous. Apr. 3, 2013 (Presented by Xu)  gAuth: Internet-Scale User Authentication (git repo sent in email). Anonymous. Apr. 17, 2013 (Presented by Giovanni)  gRev: Efficient and Timely Certificate Revocation at Global Scale (git repo sent in email). Anonymous. Apr. 24, 2013 (Presented by Luca)         Memory Allocation         Memory Allocation    Design of a General Purpose Memory Allocator for the 4.3BSD UNIX Kernel (mckusick88kernelMalloc). Marshall Krik McKusick and Michael J. Karels. May 1, 2013             Previous Semesters                                                   About Us           Getting Started    Paper Reading Seminar    Binary install into VirtualBox    The Advanced Programming Seminar Series                    ",
+    "outlinks": [
+        "https://ethos.lab.uic.edu/projects/",
+        "https://library.uic.edu/",
+        "https://ethos.lab.uic.edu/background/binary-install-into-virtualbox/",
+        "https://ethos.lab.uic.edu/papers/",
+        "https://ethos.lab.uic.edu/background/paper-reading-seminar/fall-2012/",
+        "https://uic.edu/",
+        "https://engineering.uic.edu/",
+        "https://ethos.lab.uic.edu/background/paper-reading-seminar/fall-2011/",
+        "https://ethos.lab.uic.edu/",
+        "https://uic.edu/about/job-opportunities",
+        "https://today.uic.edu/events",
+        "https://catalog.uic.edu/ucat/academic-calendar/",
+        "https://ready.uic.edu/digital-materials/uic-safe-mobile-app/",
+        "https://ethos.lab.uic.edu/background/paper-reading-seminar/spring-2012/",
+        "https://dos.uic.edu/student-veterans-affairs/",
+        "https://uihealth.uic.edu/",
+        "https://maps.uic.edu/",
+        "https://ethos.lab.uic.edu/background/",
+        "https://www.uic.edu/apps/departments-az/search",
+        "https://ethos.lab.uic.edu/people/",
+        "https://emergency.uic.edu/",
+        "https://disabilityresources.uic.edu/",
+        "https://www.cs.uic.edu/",
+        "https://today.uic.edu/",
+        "https://ethos.lab.uic.edu/background/the-advanced-programming-seminar-series/",
+        "https://ethos.lab.uic.edu/background/getting-started/"
+    ]
+}

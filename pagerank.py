@@ -23,7 +23,7 @@ def page_rank(G,node_score,origin_outlink):
         sum =0 
         for node in G.nodes():  #Each node in graph 
             sum =0 
-            for neighbor in list(G.neighbors(node)):  #Neighbors of that node
+            for neighbor in list(G.predecessors(node)):  #Neighbors of that node
                 if len(list(G.neighbors(neighbor)))>0:
                     sum += prev_score[neighbor] / len(list(G.neighbors(neighbor)))
             node_score[node] = ((1-e) * sum) + e/n       
@@ -65,6 +65,8 @@ def main():
     node_score_networkx = pagerank_networkx(G)
     with open("ranked_documents", 'wb') as pickle_file:
         pickle.dump(node_score, pickle_file)
+    with open("ranked_documents_networkx", 'wb') as pickle_file:
+        pickle.dump(node_score_networkx, pickle_file)
     #print(node_score)
     
     

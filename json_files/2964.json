@@ -1,0 +1,33 @@
+{
+    "origin_link": "https://nlp.lab.uic.edu/nlp-research/nl-for-educational-technology/",
+    "title": "NL for Educational Technology | Natural Language Processing Laboratory | University of Illinois at Chicago",
+    "contents": "               Skip to the content of this page ,  the main menu , the secondary menu , the site search form , the site home page .           Natural Language Processing Laboratory     Search the site     Toggle Menu      Search                  Natural Language Processing Laboratory      Natural Language Processing Laboratory   Main Menu    Research           Methodology and Foundational Work    NL for Educational Technology    Summarization for Entertainment and Healthcare    Human-Robot Interaction         People    Publications    Resources    Photos    News     Eyebrow menu    Computer Science    College of Engineering    Contact    UIC menu    UIC.edu    Campus Map       Search               View Menu           Breadcrumbs   Natural Language Processing Laboratory    Research    NL for Educational Technology        NL for Educational Technology       NL for educational technology      Image: Wikimedia    Since 2000, we have been investigating what makes human conversations effective in a learning context; and what is the value-added of NL interfaces to educational technology applications. In collaboration with psychologists and instructional experts, we have been studying tutorial and peer dialogues, i.e., dialogues between a human tutor and a tutee, or between two peers studying together. We collect, analyze and mine dialogues for instructional / collaboration strategies that are cognitively plausible and correlate with learning. Several software systems have resulted from this work. In our first project, DIAG-NLP ( Di Eugenio et al., 2005; Di Eugenio et al., 2008), we showed that more concise and abstract feedback would lead to more learning in diagnosing simulated malfunctions of a mechanical system. In the last few years, we have focused on instruction in introductory Computer Science classes. We investigated two different approaches: iList, an Intelligent Tutoring System ( Fossati et al., 2008;  Fossati et al., 2009a; Fossati et al., 2009b), and KSC-PaL, a system with which a student can collaborate as if with a real peer ( Kersey et al., 2009;  Kersey et al., 2010 ). Both systems have been found to be conducive to learning. In particular, iList has been evaluated with more than 200 students, and downloaded by about 1500 additional users (iList is publicly available and downloadable from http://www.digitaltutor.net/ ). Our current funding from the Qatar Research Foundation (NPRP award 5-939-1-155) seeks to expand iList into ChiQat-Tutor. This research covers the gamut from investigating the best pedagogical strategies to teach recursion to sophisticated data mining models of the log data from iList (Di Eugenio et al., 2013b).          Research           Methodology and Foundational Work    NL for Educational Technology    Summarization for Entertainment and Healthcare    Human-Robot Interaction                    ",
+    "outlinks": [
+        "https://library.uic.edu/",
+        "https://nlp.lab.uic.edu/publications/",
+        "https://uic.edu/",
+        "https://engineering.uic.edu/",
+        "https://nlp.lab.uic.edu/nlp-research/methodology-and-foundational-work/",
+        "https://nlp.lab.uic.edu/news-2/",
+        "https://nlp.lab.uic.edu/nlp-research/human-robot-interaction/",
+        "https://nlp.lab.uic.edu/resources/contact/",
+        "https://nlp.lab.uic.edu/resources/",
+        "https://nlp.lab.uic.edu/nlp-research/summarization-for-entertainment-and-for-health-care/",
+        "https://nlp.lab.uic.edu/people/",
+        "https://uic.edu/about/job-opportunities",
+        "https://today.uic.edu/events",
+        "https://catalog.uic.edu/ucat/academic-calendar/",
+        "https://nlp.lab.uic.edu/nlp-research/",
+        "https://nlp.lab.uic.edu/",
+        "https://ready.uic.edu/digital-materials/uic-safe-mobile-app/",
+        "https://dos.uic.edu/student-veterans-affairs/",
+        "https://uihealth.uic.edu/",
+        "https://maps.uic.edu/",
+        "https://www.uic.edu/apps/departments-az/search",
+        "https://emergency.uic.edu/",
+        "https://nlp.lab.uic.edu/photos/",
+        "https://disabilityresources.uic.edu/",
+        "https://www.cs.uic.edu/",
+        "https://today.uic.edu/"
+    ]
+}

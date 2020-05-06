@@ -135,65 +135,66 @@ def preprocess_contents(corpus):
                 processed.append(words)
     return processed
 
-def main():
-    corpus=[]
-    corpus=read_json_files(corpus,"json_files")
-    url_doc_index={}
-    doc_index=[]
-    url_doc={}
-    for index, doc in enumerate(corpus):
-        content = preprocess_contents(doc['contents'])
-        doc_index.append(content)
-        url_doc_index[index] = doc['origin_link']
-        url_doc[doc['origin_link']]=content
+# def main():
+#     pass
+#     corpus=[]
+#     corpus=read_json_files(corpus,"json_files")
+#     url_doc_index={}
+#     doc_index=[]
+#     url_doc={}
+#     for index, doc in enumerate(corpus):
+#         content = preprocess_contents(doc['contents'])
+#         doc_index.append(content)
+#         url_doc_index[index] = doc['origin_link']
+#         url_doc[doc['origin_link']]=content
     
-    #print(url_doc_index[0] + "  " + str(doc_index[0]))
-    inverted_index = invertedIndex(doc_index)
-    maxFreq = max_word_document(inverted_index)
+#     #print(url_doc_index[0] + "  " + str(doc_index[0]))
+#     inverted_index = invertedIndex(doc_index)
+#     maxFreq = max_word_document(inverted_index)
 
 
-    #Calculating tf,idf and weights of each word in every document
-    weights_doc,weights_doc_sq=calculateWeightsDoc(doc_index,inverted_index,maxFreq)
+#     #Calculating tf,idf and weights of each word in every document
+#     weights_doc,weights_doc_sq=calculateWeightsDoc(doc_index,inverted_index,maxFreq)
 
-    query=[]
-    with open('queries.txt', 'r') as f:
-        for line in f:
-            query.append(line)
-    query_tokenized=preprocessing(query)
-    query_tokenized=removeStopWords(query_tokenized)
-    query_stem=porterStemmer(query_tokenized)
-    query_nostop=removeStopWords(query_stem)
-    query_tokens=removeWords(query_nostop)
+#     query=[]
+#     with open('queries.txt', 'r') as f:
+#         for line in f:
+#             query.append(line)
+#     query_tokenized=preprocessing(query)
+#     query_tokenized=removeStopWords(query_tokenized)
+#     query_stem=porterStemmer(query_tokenized)
+#     query_nostop=removeStopWords(query_stem)
+#     query_tokens=removeWords(query_nostop)
 
-    with open("IntermediateFiles/url_doc_index", 'wb') as pickle_file:
-            pickle.dump(url_doc_index, pickle_file)
-    with open("IntermediateFiles/inverted_index", 'wb') as pickle_file:
-            pickle.dump(inverted_index, pickle_file)
-    with open("IntermediateFiles/doc_index", 'wb') as pickle_file:
-            pickle.dump(doc_index, pickle_file)
-    with open("IntermediateFiles/weights_doc", 'wb') as pickle_file:
-            pickle.dump(weights_doc, pickle_file)
-    with open("IntermediateFiles/weights_doc_sq", 'wb') as pickle_file:
-            pickle.dump(weights_doc_sq, pickle_file)
-    #Calculating tf,idf and weights of each word in every query
-    '''weights_query=calculateWeightsQuery(query_tokens,doc_index,inverted_index)
+#     with open("IntermediateFiles/url_doc_index", 'wb') as pickle_file:
+#             pickle.dump(url_doc_index, pickle_file)
+#     with open("IntermediateFiles/inverted_index", 'wb') as pickle_file:
+#             pickle.dump(inverted_index, pickle_file)
+#     with open("IntermediateFiles/doc_index", 'wb') as pickle_file:
+#             pickle.dump(doc_index, pickle_file)
+#     with open("IntermediateFiles/weights_doc", 'wb') as pickle_file:
+#             pickle.dump(weights_doc, pickle_file)
+#     with open("IntermediateFiles/weights_doc_sq", 'wb') as pickle_file:
+#             pickle.dump(weights_doc_sq, pickle_file)
+#     #Calculating tf,idf and weights of each word in every query
+#     '''weights_query=calculateWeightsQuery(query_tokens,doc_index,inverted_index)
 
-    #Calculate cosine similarity between document and query
-    cosum_query=calculateCosineSim(weights_query,doc_index,weights_doc,weights_doc_sq) 
-    #Sort the similarities in descending order for every query
-    #cosine_sorted= sorted(cosum_query.items(), key=operator.itemgetter(1))
-    cosine_sorted=list(sorted(cosum_query[0].items(), key = lambda kv:(kv[1], kv[0]),reverse=True))
-    ranked_documents=pickle.load(open('ranked_documents', 'rb'))
-    combined_score = {}
-    for keys in cosine_sorted:
-        combined_score[url_doc_index.get(keys[0])] = keys[1] + ranked_documents.get(url_doc_index.get(keys[0]))   
-    print(cosine_sorted[1][0])
-    top_ten_links_file= []
-    for i in range(0,10):
-        top_ten_links_file.append(cosine_sorted[i][0])
-        print(url_doc_index.get(cosine_sorted[i][0]))'''
+#     #Calculate cosine similarity between document and query
+#     cosum_query=calculateCosineSim(weights_query,doc_index,weights_doc,weights_doc_sq) 
+#     #Sort the similarities in descending order for every query
+#     #cosine_sorted= sorted(cosum_query.items(), key=operator.itemgetter(1))
+#     cosine_sorted=list(sorted(cosum_query[0].items(), key = lambda kv:(kv[1], kv[0]),reverse=True))
+#     ranked_documents=pickle.load(open('ranked_documents', 'rb'))
+#     combined_score = {}
+#     for keys in cosine_sorted:
+#         combined_score[url_doc_index.get(keys[0])] = keys[1] + ranked_documents.get(url_doc_index.get(keys[0]))   
+#     print(cosine_sorted[1][0])
+#     top_ten_links_file= []
+#     for i in range(0,10):
+#         top_ten_links_file.append(cosine_sorted[i][0])
+#         print(url_doc_index.get(cosine_sorted[i][0]))'''
     
 
     
 
-main()
+# main()

@@ -6,9 +6,9 @@ from collections import defaultdict
 import pickle
 import re
 import json
-from preprocessing import *
+from preprocessing import preprocessing,removeStopWords,porterStemmer
 import operator
-from VectorSpaceModel import *
+from VectorSpaceModel import removeWords,calculateWeightsQuery,calculateCosineSim
 
 def get_result(query):
     query_tokenized=preprocessing(query)
@@ -31,15 +31,20 @@ def get_result(query):
     #cosine_sorted= sorted(cosum_query.items(), key=operator.itemgetter(1))
     cosine_sorted=list(sorted(cosum_query[0].items(), key = lambda kv:(kv[1], kv[0]),reverse=True))
     ranked_documents=pickle.load(open('ranked_documents', 'rb'))
+    ranked_documents_networkx=pickle.load(open('ranked_documents_networkx', 'rb'))
     combined_score = {}
     for keys in cosine_sorted:
         combined_score[url_doc_index.get(keys[0])] = keys[1] + ranked_documents.get(url_doc_index.get(keys[0])) 
-    combined_score= sorted(combined_score.items(), key=lambda x:x[1],reverse=True)
+    combined_score= list(sorted(combined_score.items(), key=lambda x:x[1],reverse=True))
     #combined_score=list(sorted( combined_score[0].items(), key = lambda kv:(kv[1], kv[0]),reverse=True))  
-    print(cosine_sorted[1][0])
-    top_ten_links_file= []
-    for i in range(0,10):
+    # print("Using only cosine similarity")
+    top_links= []
+    '''for i in range(0,10):
         top_ten_links_file.append(url_doc_index.get(cosine_sorted[i][0]))
-        print(url_doc_index.get(cosine_sorted[i][0]))
-    return top_ten_links_file
+        print(url_doc_index.get(cosine_sorted[i][0]))'''
+    
+    # print("Using Cosine similarity and pagerank")
+    for i,link in enumerate(combined_score):
+        top_links.append((combined_score[i][0]))
+    return top_links
 
