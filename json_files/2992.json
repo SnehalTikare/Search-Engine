@@ -1,31 +1,8 @@
 {
-    "origin_link": "https://ethos.lab.uic.edu/news/",
-    "title": "Recent News Events | Ethos Laboratory | University of Illinois at Chicago",
-    "contents": "               Skip to the content of this page ,  the main menu , the site search form , the site home page .           Ethos Laboratory     Search the site     Toggle Menu      Search                  Ethos Laboratory      Ethos Laboratory   Main Menu    People    Projects    Papers    About Us           Getting Started    Paper Reading Seminar    Binary install into VirtualBox    The Advanced Programming Seminar Series          Eyebrow menu    Computer Science    College of Engineering    UIC menu    UIC.edu    Campus Map       Search                     Recent News Events       Recent news events    I’m starting to tweet news @JonSolworth.  UIC is searching for Systems Faculty.  Jon Solworth presented a talk on Ethos at You broke the Internet at the 30th Chaos Computer Congress.  Dan Bernstein, Tanja Lange, and Nadia Heninger presented “The Year In Crypto” at the 30th Chaos Computer Congress.  Mike Petullo presented MinimaLT at ACM Computer and Communications Conference in Nov. 2013.  I’ve just put a slew of Ethos papers on-line, see this  We’ve released Ethos’s network protocol “MinimaLT: Minimal-latency Networking Through Better Security” by W. Michael Petullo, Xu Zhang, Jon A. Solworth, Daniel J. Bernstein, and Tanja Lange.  Jon A. Solworth gave a talk on May 21st at IEEE Security and Privacy: Clean slate vs. compatibility: The struggle for new system software layers  Jon A. Solworth gave a talk on May 3rd at Greater Chicago Area Systems Research Workshop, Ethos: A layered approached to secure applications  W. Michael Petullo defended his Ph.D. thesis on May 15th, 2013.  An Ethos paper on secure networking has been accepted to the EuroSec workshop at EuroSys in Prague. Mike Petullo is lead author and presenter.  Wenyuan and Muxuan Fei’s son Daniel was born on March 12th.  Two more Ethos papers have been accepted, this time to the Resolve Workshop at ASPLOS. Mike Petullo is the lead author and presenter.  Mike Petullo gave a talk at University of Wisconsin, Madison on Ethos.  Ethos now runs on 64-bit, the result of 6 months determined effort to root out bugs in the the 64-bit port which made it unusable. Kudos to Xu Zhang and Mike Petullo and to Pat Gavlin and Andrei Warkentin for the original port.  CS 486, Secure Operating System Design and Implementation course has been approved by the department’s graduate and undergraduate committees.  The first Ethos paper has been published at ACM DIM, the ACM workshop on Digital Identity Management.                      ",
+    "origin_link": "https://www2.cs.uic.edu/~zhangx/SmoothOPT/",
+    "title": "Smoothing for Multivariate Scores (SMS)",
+    "contents": "  Smoothing for Multivariate Scores (SMS)    version 2.0  August 13, 2012  Overview  SMS is an open source, extensible and scalable convex solver for a number of machine learning problems cast in the form of regularized risk\r\nminimization problem [1].  It is particularly advantageous for optimizing \r\nmultivariate performance measure [2].  The implementation is \"extensible\" because the (problem-specific)\r\nloss function modules are encapsulated with a common interface for the main \r\noptimizer.  Thus it is very simple to incorporate solutions to new \r\nproblems.   At present, SMS can solve the\r\nfollowing problems:    Binary Hinge Loss Precision/Recall Break-even Point (PRBEP) [2] Area under Receiver Operating Characteristic curve (ROCArea) [2]    SMS is implemented with optimized efficiency.  It features parallel \r\noptimization, which is fuelled by the PETSc and TAO packages.  We also provide data files in PETSc format, which can be parsed \r\nand loaded an order of magnitude faster than the conventional LibSVM format.  Download  SMS version \r\n2.0 [Compatible with PETSc 3.3-p2 and TAO 2.1, updated on Aug 13, \r\n2012]   SMS version \r\n1.0 [Compatible with PETSc 3.2-p2 and TAO 2.0-dev7]   Disclaimer SMS is licensed under Mozilla \r\nPublic License version 1.1 . The authors are not responsible for any \r\nimplications from the use of the software.  All experimental result in figure  all_figures.zip  Contacts   Xinhua Zhang | Ankan Saha | SVN Vishwanathan   References    [1]    Xinhua Zhang , Ankan Saha , S. V. N. Vishwanathan  Smoothing Multivariate \n\t\tPerformance Measures  Journal of Machine Learning \r\n\t\tResearch (submitted)  [ PDF ]  Uncertainty in Artificial \n\t\tIntelligence (UAI), 2011.  [ PDF ]     [2]  Thorsten Joachims, A Support Vector Method for Multivariate Performance \r\nMeasures, ICML, 2005.     Last modified: 13 August, 2012      ",
     "outlinks": [
-        "https://ethos.lab.uic.edu/projects/",
-        "https://ethos.lab.uic.edu/background/paper-reading-seminar/",
-        "https://library.uic.edu/",
-        "https://ethos.lab.uic.edu/background/binary-install-into-virtualbox/",
-        "https://ethos.lab.uic.edu/papers/",
-        "https://uic.edu/",
-        "https://engineering.uic.edu/",
-        "https://ethos.lab.uic.edu/",
-        "https://uic.edu/about/job-opportunities",
-        "https://today.uic.edu/events",
-        "https://catalog.uic.edu/ucat/academic-calendar/",
-        "https://ready.uic.edu/digital-materials/uic-safe-mobile-app/",
-        "https://dos.uic.edu/student-veterans-affairs/",
-        "https://uihealth.uic.edu/",
-        "https://maps.uic.edu/",
-        "https://ethos.lab.uic.edu/background/",
-        "https://www.uic.edu/apps/departments-az/search",
-        "https://ethos.lab.uic.edu/people/",
-        "https://emergency.uic.edu/",
-        "https://disabilityresources.uic.edu/",
-        "https://www.cs.uic.edu/",
-        "https://today.uic.edu/",
-        "https://ethos.lab.uic.edu/background/the-advanced-programming-seminar-series/",
-        "https://ethos.lab.uic.edu/background/getting-started/"
+        "https://www2.cs.uic.edu/~zhangx/data/index.html"
     ]
 }

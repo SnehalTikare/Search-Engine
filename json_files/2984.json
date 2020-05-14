@@ -1,34 +1,8 @@
 {
-    "origin_link": "https://sisl.lab.uic.edu/projects/marple/",
-    "title": "MARPLE | Systems & Internet Security Lab | University of Illinois at Chicago",
-    "contents": "               Skip to the content of this page ,  the main menu , the secondary menu , the site search form , the site home page .           Systems & Internet Security Lab     Search the site     Toggle Menu      Search                  Systems & Internet Security Lab      Systems & Internet Security Lab   Main Menu    Projects           MALDIVES    MARPLE    ESP-IGERT    CSFV         People    Publications    News    Contact     Eyebrow menu    Computer Science    College of Engineering    UIC menu    UIC.edu    Campus Map       Search               View Menu           Breadcrumbs   Systems & Internet Security Lab    Projects    MARPLE        MARPLE  Mitigating APT Damage by Reasoning with Provenance in Large Enterprise Networks  The goal of this proposal is to explore and create a suite of technologies called MARPLE that can radically harden enterprise security by large scale automation of the task of detecting sophisticated cyber threats as a first step to remediating and preventing subsequent cyber exploits.  Enterprises today, largely use perimeter-based controls for their defense. These tools, typically, come from different vendors, are fragmented and provide a narrow view of the activities in one part of the enterprise infrastructure. In doing so, they ignore three crucial observations: (a) first, the activities in an enterprise are not all independent of one another but are some times causally related (b) second, normal day to day operations of enterprise activities are done in relatively small and stable interaction neighborhoods (c) third, in contrast, cyber threats often cross such neighborhoods. So, while the tools in use today, generate a multitude of event alert streams, logs and audit records that contain potentially actionable intelligence, the inability to consolidate and correlate these events and data automatically at line speeds and present them to the security analyst in a semantically-meaningful manner robs security analysts and administrators of a valuable tool to defend enterprise networks.  To this end, MARPLE combines ideas from four disparate areas to explore a radical and game-changing approach to cyber security, namely, Causality Tracking from Distributed Systems, Heterogeneous Information Networks (HINs) from Data Mining and Knowledge Discovery, Efficient Implementations of Large Graphs and Graph Analytics and Policy Learning and Enforcement.      Participating Institutions:                                                               Prinicipal Investigators:    J.R. Rao (IBM)  Suresh Chari (IBM)  Ian Molloy (IBM)  Xin Hu (IBM)  Doug Schales (IBM)  Yan Chen (Northwestern University)  Leman Akoglu (Stony Brook University)  R. Sekar (Stony Brook University)  Scott Stoller (Stony Brook University)  Venkat Venkatakrishnan (University of Illinois at Chicago)  Rigel Gjomemo (University of Illinois at Chicago)        Sponsor:   ­ ­          Projects           MALDIVES    MARPLE    ESP-IGERT    CSFV                    ",
+    "origin_link": "https://www.cs.uic.edu/~zhangx/GCG/",
+    "title": "Generalized Conditional Gradient (GCG)",
+    "contents": "  Generalized Conditional Gradient (GCG)     Overview  GCG is an open source Matlab solver for gauge (norm)\nregularized problems, that are commonly used in sparse coding and\ncompressive sensing.  Examples include matrix completion,\ndictionary learning, and structured sparse estimation. The code includes the implementations used for all experiments in [1]. Download Latest: GCG version 2.0  Old stuff: GCG version 1.0  This version 1.0 implements the boosting algorithm in [2].\nNote the loss\nfunction for matrix completion needs to be customized in order to\nefficiently compute f(U V') where U and V have a small number of\ncolumns.  We provide a helper function here .   Disclaimer GCG is licensed under Mozilla\nPublic License version 1.1 . The authors are not responsible\nfor any implications from the use of the software.   Contacts   Xinhua\nZhang | Yaoliang Yu | Dale\nSchuurmans   References     [1]    Yaoliang\nYu , Xinhua Zhang , Dale\nSchuurmans   Generalized Conditional Gradient for Sparse Estimation  Journal of Machine Learning Research (JMLR)  Under review, 2014.  [ PDF ]       [2]    Xinhua Zhang , Yaoliang\nYu , Dale\nSchuurmans  Accelerated\nTraining for Matrix-norm Regularization: A Boosting Approach  Advances\nin Neural Information Processing Systems (NIPS), 2012.  [ PDF ]             ",
     "outlinks": [
-        "https://sisl.lab.uic.edu/publications/",
-        "https://library.uic.edu/",
-        "https://uic.edu/",
-        "https://engineering.uic.edu/",
-        "https://sisl.lab.uic.edu/contact/",
-        "https://sisl.lab.uic.edu/",
-        "https://sisl.lab.uic.edu/people/",
-        "https://sisl.lab.uic.edu/projects/",
-        "https://sisl-lab.red.uic.edu/profiles/rigel-gjomemo/",
-        "https://sisl.lab.uic.edu/news/",
-        "https://uic.edu/about/job-opportunities",
-        "https://today.uic.edu/events",
-        "https://catalog.uic.edu/ucat/academic-calendar/",
-        "https://sisl.lab.uic.edu/projects/maldives/",
-        "https://ready.uic.edu/digital-materials/uic-safe-mobile-app/",
-        "https://dos.uic.edu/student-veterans-affairs/",
-        "https://sisl.lab.uic.edu/projects/csfv/",
-        "https://www.uic.edu/",
-        "https://uihealth.uic.edu/",
-        "https://sisl.lab.uic.edu/projects/esp-igert-2/",
-        "https://maps.uic.edu/",
-        "https://sisl-lab.red.uic.edu/profiles/venkat-venkatakrishnan/",
-        "https://www.uic.edu/apps/departments-az/search",
-        "https://emergency.uic.edu/",
-        "https://disabilityresources.uic.edu/",
-        "https://www.cs.uic.edu/",
-        "https://today.uic.edu/"
+        "https://www.cs.uic.edu/~zhangx/GCG/proj_omega_sub_single.cpp"
     ]
 }

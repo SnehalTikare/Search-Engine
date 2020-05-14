@@ -1,7 +1,6 @@
 import math
 import networkx as nx
 import numpy as np
-from functionModule import *
 from collections import defaultdict
 from nltk.util import ngrams
 from nltk.tokenize import WhitespaceTokenizer
@@ -35,13 +34,12 @@ def pagerank_networkx(G):
     return pg_networkx
 
 def main():
-    print("pagerank")
     '''crawled_links=pickle.load(open('crawled_links', 'rb'))
     out_links=pickle.load(open('out_links', 'rb'))'''
     outlinks=[]
     outlinks=read_json_files(outlinks,"json_files")
     contents=[]
-    with open("crawled_links.txt","r") as f:
+    with open("CrawledFiles/crawled_links.txt","r") as f:
         for line in f:
             contents.append(line.strip())
     f.close()
@@ -63,13 +61,9 @@ def main():
     node_score = initiliaze_scores(G)
     node_score = page_rank(G,node_score,origin_outlink)
     node_score_networkx = pagerank_networkx(G)
-    with open("ranked_documents", 'wb') as pickle_file:
+    with open("IntermediateFiles/ranked_documents", 'wb') as pickle_file:
         pickle.dump(node_score, pickle_file)
-    with open("ranked_documents_networkx", 'wb') as pickle_file:
-        pickle.dump(node_score_networkx, pickle_file)
-    #print(node_score)
+    with open("IntermediateFiles/ranked_documents_networkx", 'wb') as pickle_file:
+        pickle.dump(node_score_networkx, pickle_file)   
     
-    
-
-
-main()
+#main()
