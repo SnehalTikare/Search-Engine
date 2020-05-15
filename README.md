@@ -1,10 +1,10 @@
 ## Information-retrieval
 
-Filename :  searchengine.py, run_model.py, crawler.py
-Screenshot of the result is in the folder "Screenshot of result"
+Filename :  searchengine.py, run_model.py, crawler.py </br>
+Screenshot of the result is in the folder "Screenshot of result" </br>
 The given folder has all the files.Please navigate to the folder or open the folder in a IDE
-and run searchengine.py. 
-Files consists of relative path and no absolute path.So it should run if all files are in same folder
+and run searchengine.py. </br>
+Files consists of relative path and no absolute path.So it should run if all files are in same folder </br>
 
 __Environment:__ <br />
 Python version: Python 3 and above <br />
