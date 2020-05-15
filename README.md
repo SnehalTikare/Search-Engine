@@ -1,8 +1,7 @@
 ## Information-retrieval
-Name- Snehal Tikare
-NetId- stikar2
-Filename :  searchengine.py, run_model.py, crawler.py
 
+Filename :  searchengine.py, run_model.py, crawler.py
+Screenshot of the result is in the folder "Screenshot of result"
 The given folder has all the files.Please navigate to the folder or open the folder in a IDE
 and run searchengine.py. 
 Files consists of relative path and no absolute path.So it should run if all files are in same folder
