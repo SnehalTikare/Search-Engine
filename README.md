@@ -24,7 +24,7 @@ pip install scrapy
 
 ```python
 python -m spacy download en_core_web_sm 
-python -m nltk.downloader all <br />
+python -m nltk.downloader all
 ```
 
 __Note: some of the functionalities used in the program are compatible with only python 3 and above.__<br />
