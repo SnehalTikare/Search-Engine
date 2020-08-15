@@ -12,14 +12,20 @@ Python version: Python 3 and above <br />
 __Libraries :__ <br />
 Install the below libraries<br />
 Commands may change based on the system used(Windows, Mac, Linux) check accordingly
-- pip install -U nltk <br />
-- sudo python -m nltk.downloader all <br />
+
+```bash
+- pip install -U nltk 
 - pip install networkx
 - pip install spacy
 - pip install pickle
-- python -m spacy download en_core_web_sm 
 - pip install beautifulsoup4
 - pip install scrapy
+```
+
+```python
+python -m spacy download en_core_web_sm 
+python -m nltk.downloader all <br />
+```
 
 __Note: some of the functionalities used in the program are compatible with only python 3 and above.__<br />
 __Please use python 3 and above to run the program__<br />
