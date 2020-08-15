@@ -14,12 +14,12 @@ Install the below libraries<br />
 Commands may change based on the system used(Windows, Mac, Linux) check accordingly
 
 ```bash
-- pip install -U nltk 
-- pip install networkx
-- pip install spacy
-- pip install pickle
-- pip install beautifulsoup4
-- pip install scrapy
+pip install -U nltk 
+pip install networkx
+pip install spacy
+pip install pickle
+pip install beautifulsoup4
+pip install scrapy
 ```
 
 ```python
